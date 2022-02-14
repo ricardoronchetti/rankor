@@ -141,7 +141,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Guillermo Perez - [LinkedIn](https://www.linkedin.com/in/guillermo-p%C3%A9rez-fuentes-78180721b)
+Guillermo Perez - [LinkedIn](https://linkedin.com/in/guillermo-perez-fuentes)
 Ricardo Ronchetti - [LinkedIn](https://linkedin.com/in/ricardoronchetti)
 
 <p align="right">(<a href="#top">back to top</a>)</p>

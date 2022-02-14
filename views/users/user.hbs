@@ -1,0 +1,13 @@
+<h2>Usuarios</h2>
+<ul>
+    {{#each user}}
+    <li>
+        Nombre:{{username}}
+        <a href="/user/{{_id}}/">Ver Perfil</a>
+        <a href="/user/{{_id}}/edit">Editar Perfil</a>
+        <form action="/user/{{_id}}/delete" method="POST">
+            <button>Borrar Perfil</button>
+        </form>
+    </li>
+    {{/each}}
+</ul>

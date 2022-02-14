@@ -7,10 +7,6 @@ const gameSchema = new Schema(
         genre: String,
         publisher: String,
         screenshot: String,
-        isPlayed: {
-            type: Boolean,
-            default: false,
-        },
     },
     {
         timestamps: true,

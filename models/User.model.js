@@ -14,19 +14,24 @@ const userSchema = new Schema(
     name: String,
     description: String,
     avatar: String,
+    skills: String,
     role: {
       type: String,
       enum: ['USER', 'ADMIN'],
       default: 'USER',
     },
-    games: [{ type: Schema.Types.ObjectId, ref: 'Games' }],
-    friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    playedGames: [{
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }],
+    friends: [{
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }]
   },
   {
     timestamps: true,
   }
 )
 
-const User = model('User', userSchema)
-
-module.exports = User
+module.exports = model('User', userSchema)
