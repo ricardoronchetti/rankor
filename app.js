@@ -5,6 +5,11 @@ const express = require("express");
 const hbs = require("hbs");
 const app = express();
 
+app.use(express.static('public'))
+app.set('view engine', 'hbs')
+app.set('views', `${__dirname}/views`)
+hbs.registerPartials(`${__dirname}/views/partials/`)
+
 require("./config")(app);
 
 const projectName = "rankor";

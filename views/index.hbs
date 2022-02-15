@@ -1,2 +1,157 @@
-<h1>{{appTitle}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<div class="container">
+	<h2>Recomendados</h2>
+	<hr>
+	<div class="row my-5">
+		<div class="col-6 col-md-4 col-lg-3">
+			<a href="/user/{{_id}}">
+				<div class="card file-card">
+					{{#each user}}
+						<div class="header-file-card">
+							<p>
+								{{username}}
+							</p>
+						</div>
+						<div class="footer-file-card">
+							<form class="stars">
+								<p class="valoracion">
+									<input id="radio1" type="radio" name="estrellas" value="5">
+									<label for="radio1">★</label>
+									<input id="radio2" type="radio" name="estrellas" value="4">
+									<label for="radio2">★</label>
+									<input id="radio3" type="radio" name="estrellas" value="3">
+									<label for="radio3">★</label>
+									<input id="radio4" type="radio" name="estrellas" value="2">
+									<label for="radio4">★</label>
+									<input id="radio5" type="radio" name="estrellas" value="1">
+									<label for="radio5">★</label>
+								</p>
+							</form>
+							<div>
+								<p>{{skills}}</p>
+								<p>{{playedGames}}</p>
+							</div>
+							<a href="/user/{{_id}}/">Ver Perfil</a>
+							<a href="/user/{{_id}}/edit">Editar Perfil</a>
+							<form action="/user/{{_id}}/delete" method="POST">
+								<button>Borrar Perfil</button>
+							</form>
+						</div>
+					{{/each}}
+				</div>
+			</a>
+		</div>
+	</div>
+	<hr>
+	<h2>Categorías</h2>
+	<hr>
+	<div class="row">
+		<div class="col-6 col-md-4 col-lg-3">
+			<a href="">
+				<div class="card category-card">
+					<div class="footer-category-card">
+						<p>Arcade</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 col-lg-3">
+			<a href="">
+				<div class="card category-card">
+					<div class="footer-category-card">
+						<p>Acción</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 col-lg-3">
+			<a href="">
+				<div class="card category-card">
+					<div class="footer-category-card">
+						<p>Plataformas</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 col-lg-3">
+			<a href="">
+				<div class="card category-card">
+					<div class="footer-category-card">
+						<p>Deportes</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 col-lg-3">
+			<a href="">
+				<div class="card category-card">
+					<div class="footer-category-card">
+						<p>Lucha</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 col-lg-3">
+			<a href="">
+				<div class="card category-card">
+					<div class="footer-category-card">
+						<p>Rol</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 col-lg-3">
+			<a href="">
+				<div class="card category-card">
+					<div class="footer-category-card">
+						<p>Shooter</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 col-lg-3">
+			<a href="">
+				<div class="card category-card">
+					<div class="footer-category-card">
+						<p>Simulación</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 col-lg-3">
+			<a href="">
+				<div class="card category-card">
+					<div class="footer-category-card">
+						<p>Aventuras</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 col-lg-3">
+			<a href="">
+				<div class="card category-card">
+					<div class="footer-category-card">
+						<p>Juegos de mesa</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 col-lg-3">
+			<a href="">
+				<div class="card category-card">
+					<div class="footer-category-card">
+						<p>Musicales</p>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-4 col-lg-3">
+			<a href="">
+				<div class="card category-card">
+					<div class="footer-category-card">
+						<p>Web y móvil</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>

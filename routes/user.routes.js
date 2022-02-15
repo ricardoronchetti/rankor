@@ -7,7 +7,7 @@ const User = require('../models/User.model');
 router.get('/user', (req, res, next) => {
     User
         .find()
-        .then(user => res.render('users/user', { user }))
+        .then(user => res.render('index', { user }))
         .catch(err => console.log(err))
 });
 
@@ -19,7 +19,7 @@ router.post('/user/create', (req, res, next) => {
     const { username, password, name, description, avatar, skills, role, playedGames, friends } = req.body
     User
         .create({ username, password, name, description, avatar, skills, role, playedGames, friends })
-        .then(() => res.redirect('/user'))
+        .then(() => res.redirect('/'))
         .catch(err => console.log(err))
 });
 
@@ -44,7 +44,7 @@ router.post('/user/:id/edit', (req, res, next) => {
     const { username, password, name, description, avatar, skills, role, playedGames, friends } = req.body
     User
         .findByIdAndUpdate(id, { username, password, name, description, avatar, skills, role, playedGames, friends }, { new: true })
-        .then(() => res.redirect('/user'))
+        .then(() => res.redirect('/'))
         .catch(err => console.log(err))
 });
 
@@ -52,7 +52,7 @@ router.post('/user/:id/delete', (req, res, next) => {
     const { id } = req.params
     User
         .findByIdAndDelete(id)
-        .then(() => res.redirect('/user'))
+        .then(() => res.redirect('/'))
         .catch(err => console.log(err))
 });
 
