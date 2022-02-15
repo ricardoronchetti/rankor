@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 
-
-
 const capitalize = text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
 
 const cleanText = text => text.trim()
@@ -20,8 +18,8 @@ const formatDate = date => {
 }
 
 const isAdmin = user => user.role === 'ADMIN'
-const isEditor = user => user.role === 'EDITOR'
+const isUser = user => user.role === 'USER'
 
 
 
-module.exports = { capitalize, cleanText, checkMongoID, formatDate, isAdmin, isEditor }
+module.exports = { capitalize, cleanText, checkMongoID, formatDate, isAdmin, isUser }

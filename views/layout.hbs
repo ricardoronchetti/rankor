@@ -10,6 +10,8 @@
       <link rel="stylesheet" href="/stylesheets/style.css" />
       <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css"
             rel="stylesheet"/>
+	<script src="https://kit.fontawesome.com/81c2c05f29.js" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
 	<header>
@@ -29,25 +31,34 @@
 			<i class="fas fa-gamepad"></i>
 		</a>
 
-		<div class="d-none d-md-flex">
+            {{#unless connect}}
+		<div class="d-none d-md-flex buttons">
 			<button class="btn" data-bs-toggle="modal" data-bs-target="#loginModal">
 				Iniciar sesión
 			</button>
 
-			<button class="btn reset" data-bs-toggle="modal" data-bs-target="#signupModal">
+			<button class="btn reset ml-5" data-bs-toggle="modal" data-bs-target="#signupModal">
 				Crear cuenta
 			</button>
 		</div>
+            {{/unless}}
 
+            {{#if connect}}
 		<a href="/message">
 			<i class="fas fa-comments"></i>
 		</a>
-
-		<a href="/user">
+		<a href="/user/{{_id}}/edit">
 			<div class="icon-photo">
-				<img src="/images/user.png">
+				<img src="{{avatar}}">
 			</div>
 		</a>
+            {{/if}}
+            
+            <form action="/logout" method="POST">
+			<button type="submit" class="icon-button">
+				<img src="/images/button.png">
+			</button>
+            </form>
 	</header>
 	<header class="d-flex d-md-none">
 		<a class="brand" href="/">
@@ -60,17 +71,20 @@
 				<i class="fas fa-trophy"></i>
 				Ranking
 			</p>
-
-			<a href="/user/{{_id}}">
-				<span>
-					<i class="fa-solid fa-medal"></i>
-					1º
-				</span>
-				<div class="icon-photo">
-				      <img src="/images/user.png">
-				</div> 
-				{{username}}
-			</a>
+                  {{#each user}}
+                       <a href="/user/{{_id}}">
+                              <span>
+					      <i class="fas fa-medal"></i>
+                                    1º
+                              </span>
+                              <div class="icon-photo">
+                                    <img src="/images/user.png">
+                              </div>
+                              <div class="rank-name">
+                                    {{username}}
+                              </div>
+			      </a>
+                  {{/each}}
 		</nav>
 	</aside>
 
@@ -83,29 +97,38 @@
            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
-                        <div class="modal-header">
-                              <button data-bs-dismiss="modal" aria-label="Close">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                    Volver
-                              </button>
-                        </div>
+                        <button class="back" 
+                                data-bs-dismiss="modal" 
+                                aria-label="Close">
+                              <i class="fas fa-chevron-left"></i>
+                              Volver
+                        </button>
                         <div class="modal-body">                
-                        <h2>Login</h2>
+                        <h2>Inicia Sesión</h2>
+                        <hr>
                         <form action="/login" method="POST">
-                              <label>
-                                    Username
-                                    <input type="text" name="username"/>
-                              </label>
+                              <div class="form-group">
+                                    <input type="text" name="username">
+                                    <span class="barra"></span>
+                                    <label class="control-label">
+                                          Nombre de usuario
+                                    </label>
+                              </div>
 
-                              <label>
-                                    Password
-                                    <input type="password" name="password"/>
-                              </label>
-
-                              <button class="btn" 
-                                      type="submit">
-                                    Login
-                              </button>
+                              <div class="form-group">
+                                    <input type="password" name="password">
+                                    <span class="barra"></span>
+                                    <label class="control-label">
+                                          Contraseña
+                                    </label>
+                              </div>
+                              
+                              <div class="d-grid gap-2">
+                                    <button class="btn" 
+                                            type="submit">
+                                          Entrar
+                                    </button>
+                              </div>
 
                               {{#if errorMessage}}
                                     <p class="error">{{errorMessage}}</p>
@@ -124,28 +147,38 @@
             <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                         <div class="modal-header">
-                              <button data-bs-dismiss="modal" aria-label="Close">
-                                    <i class="fa-solid fa-chevron-left"></i>
+                              <button class="back" 
+                                      data-bs-dismiss="modal" 
+                                      aria-label="Close">
+                                    <i class="fas fa-chevron-left"></i>
                                     Volver
                               </button>
                         </div>
                         <div class="modal-body">                
-                              <h2>Signup</h2>
+                              <h2>Crea una cuenta</h2>
                               <form action="/signup" method="POST">
-                                    <label>
-                                          Username
-                                          <input type="text" name="username" />
-                                    </label>
+                                    <div class="form-group">
+                                          <input type="text" name="username">
+                                          <span class="barra"></span>
+                                          <label class="control-label">
+                                                Nombre de usuario
+                                          </label>
+                                    </div>
 
-                                    <label>
-                                          Password
-                                          <input type="password" name="password"/>
-                                    </label>
-
-                                    <button class="btn" 
-                                            type="submit">
-                                          Crear Cuenta
-                                    </button>
+                                    <div class="form-group">
+                                          <input type="password" name="password">
+                                          <span class="barra"></span>
+                                          <label class="control-label">
+                                                Contraseña
+                                          </label>
+                                    </div>
+                              
+                                    <div class="d-grid gap-2">
+                                          <button class="btn" 
+                                                type="submit">
+                                                Crear Cuenta
+                                          </button>
+                                    </div>
                               </form>
                         </div>
                   </div>
@@ -164,16 +197,23 @@
 		<a href="/games">
 			<i class="fas fa-gamepad"></i>
 		</a>
-		
+
+            {{#if connect}}
 		<a href="/message">
 			<i class="fas fa-comments"></i>
 		</a>
-
-		<a href="/user">
+		<a href="/user/{{_id}}/edit">
 			<div class="icon-photo-res">
-				<img src="/images/user.png">
+				<img src="{{avatar}}">
 			</div>
 		</a>
+            {{/if}}
+
+            <form action="/logout" method="POST">
+			<button type="submit" class="icon-button">
+				<img src="/images/button.png">
+			</button>
+            </form>
 	</footer>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
               integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 

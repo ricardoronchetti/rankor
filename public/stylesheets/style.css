@@ -13,16 +13,22 @@ body {
 
 a {
     color: #00b7ff;
-		text-decoration: none;
+	text-decoration: none;
 }
 
 p {
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
-h2 {
+h2,
+h4 {
     font-family: 'Audiowide', cursive, sans-serif;
     color: #99ffff;
+}
+
+h3 {
+    font-size: 1.2em;
+    color: #00ffff;
 }
 
 hr {
@@ -32,7 +38,10 @@ hr {
 button, 
 button:focus, 
 button:active,
-input:focus {
+input,
+input:focus,
+textarea,
+textarea:focus {
     outline: none;
 }
 
@@ -41,7 +50,7 @@ input:focus {
 header {
     width: 100%;
     height: 60px;
-    padding: 0 1rem;
+    padding: 0 1em;
     background-color: #000;
     position: fixed;
     z-index: 3;
@@ -53,9 +62,8 @@ header {
 
 header a,
 header button {
-    /*color: #00ffff;*/
     color: #fff;
-    font-size: 1.3rem;
+    font-size: 1.3em;
     background: none;
     border: none;
 }
@@ -81,11 +89,14 @@ header .brand {
     font-weight: 600;
 }
 
+.buttons button {
+    margin: 0 1em;
+}
+
 .btn.reset {
     background: none;
     color: #00cccc;
     border: solid 2px #009999;
-    margin-left: 2em;
 }
 
 .btn:hover {
@@ -94,26 +105,108 @@ header .brand {
     transition: all 300ms ease-in-out;
 }
 
-.icon-photo{
+.icon-photo,
+.icon-button {
     width: 45px;
+    height: 45px;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
-.icon-photo img{
+
+
+.icon-photo img,
+.icon-button img {
     width: 100%;
 }
 
-.icon-photo-res{
+.icon-photo-res {
     width: 30px;
+    height: 30px;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
-.icon-photo-res img{
+.icon-photo-res img,
+.icon-button-res img {
     width: 100%;
 }
+
+.icon-photo,
+.icon-photo-res {
+    background-image: url('./../images/user.png');
+}
+
+
+/* Auth */
+.modal-content {
+    border-bottom: 4px solid #00ffff;
+    background-color: #1f1f23;
+    padding: 2em;
+    border-radius: 20px;
+}
+
+.back {
+    background: none;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    text-align: start;
+}
+
+.form-group {
+    position: relative;
+    margin: 4em auto;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    color: #fff; 
+    font-size: 1em;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #fff;
+}
+
+.form-group textarea {
+    border-bottom: 1px solid #99ffff;
+    resize: none;
+}
+
+.control-label {
+    font-size: 0.9em;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: -30px;
+    transition: all 500ms ease;
+}
+.barra:before, 
+.barra:after {
+    content: '';
+    height: 3px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background: #00cccc;
+    transition: all 800ms ease;
+}
+
+.form-group input:focus ~ .barra:before, 
+.form-group input:focus ~ .barra:after {
+    width: 100%;
+}
+
 
 /* Container */
 .container {
@@ -168,7 +261,7 @@ header .brand {
 .file-card p {
     font-size: 0.8em;
     color: #fff;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.2em;
 }
 
 .file-card .header-file-card p {
@@ -199,7 +292,7 @@ header .brand {
 }
 
 .footer-category-card p {
-    font-size: 1.3rem;
+    font-size: 1.3em;
     color: #00ffff;
     position: relative;
 }
@@ -226,6 +319,7 @@ header .brand {
     left: 0;
 }
 
+
 /* Ranking Menu */
 .ranking {
     width: 500px;
@@ -249,28 +343,29 @@ header .brand {
     font-weight: 600;
 }
 
-.fa-trophy {
-    color: #EABE3F;
+.fa-trophy,
+.fa-medal {
+    color: #eabe3f;
 }
 
 .ranking nav {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 
 .ranking nav a {
     font-size: 1em;
     color:  #00ffff;
-    padding: 0.7rem 0;
+    padding: 0.7em 0;
     transition: all 200ms ease-in-out;
-
-}
-
-.ranking nav a {
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.rank-name {
+    width: 180px;
 }
 
 .ranking span {
@@ -291,7 +386,105 @@ header .brand {
     .ranking.open {
         left: 0;
     }
+}	
+
+
+/* Profile */
+.back:hover {
+    color: #99ffff;
+    transition: all 500ms ease-in-out;
 }
+
+.profile-card {
+    width: 100%;
+    max-height: 100%;
+    border-radius: 0.5em;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    padding: 2em;
+}
+
+.profile-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card h4 {
+    color: #99ffff;
+}
+
+.profile-card p {
+    font-family: 'Roboto', 'calibri', sans-serif;
+    text-align: justify;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px #99ffff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('./../images/user.png');
+}
+
+/* .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 380px);
+    grid-gap: 1.5em;
+    justify-content: center;
+} */
+
+/* .item {
+    border: 2px solid rgba(0, 0, 0, 0);
+    height: 360px;
+    border-radius: 0.5em;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+} */
+
+/* .item video {
+    width: 118%;
+} */
+
+.video{
+    position: fixed; 
+    z-index: -2!important; 
+    right: 0; 
+    bottom: 0;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+@media (max-width: 576px) {
+    .profile-photo {
+        width: 150px;
+    }
+}	
+
+/* @media (max-width: 991px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, 20vw);
+    }
+} */
+
 
 /* Rated */
 .stars {
@@ -348,7 +541,7 @@ footer button {
     color: #00ffff;
     background: none;
     border: none;
-    font-size: 1.3rem;
+    font-size: 1.3em;
 }		
 
 footer a:hover,

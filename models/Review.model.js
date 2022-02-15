@@ -12,11 +12,11 @@ const reviewSchema = new Schema(
             min: 1,
             max: 5
         },
-        rated: {
+        rater: {
             type: Schema.Types.ObjectId,
             ref: 'User'
         },
-        rater: {
+        ratee: {
             type: Schema.Types.ObjectId,
             ref: 'User'
         },

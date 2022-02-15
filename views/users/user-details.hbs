@@ -1,16 +1,53 @@
+<video class="video" src="/images/video.mp4" autoplay muted loop></video>
 <div class="container">
-    <div class="row">
-        <h2>Perfil del Usuario</h2>
-        <ul>
-            <li>Username: {{username}}<br>
-                Nombre: {{name}}<br>
-                Descripción: {{descripción}}<br>
-                Avatar: {{avatar}}<br>
-                Skills: {{skills}}<br>
-                Role: {{role}}
-                playedGames: {{playedGames}}<br>
-                Amigos: {{friends}}<br>
-            </li>
-        </ul>
+    <div class="profile-card">
+        <a href="/" class="back">
+            <i class="fas fa-chevron-left"></i>
+            Volver
+        </a>
+        <div class="profile-name">
+            <h2>{{username}}</h2>
+            <div class="profile-photo">
+                <img src="{{avatar}}">
+            </div>
+            <form class="stars">
+                <p class="valoracion">
+                    <input id="radio1" type="radio" name="estrellas" value="5">
+                    <label for="radio1">★</label>
+                    <input id="radio2" type="radio" name="estrellas" value="4">
+                    <label for="radio2">★</label>
+                    <input id="radio3" type="radio" name="estrellas" value="3">
+                    <label for="radio3">★</label>
+                    <input id="radio4" type="radio" name="estrellas" value="2">
+                    <label for="radio4">★</label>
+                    <input id="radio5" type="radio" name="estrellas" value="1">
+                    <label for="radio5">★</label>
+                </p>
+            </form>
+        </div>
+        <div>
+            <h4>Sobre mí</h4>
+            <p>
+                {{description}}
+            </p>
+        </div>
+        <div>
+            <h4>Skills</h4>
+            <p>
+                {{skills}}
+            </p>
+        </div>
+        <div>
+            <h4>Mis juegos</h4>
+            <p>
+                {{playedGames}}
+            </p>
+        </div>
+        <div>
+            <h4>Amigos</h4>
+            <p>
+                {{friends}}
+            </p>
+        </div>
     </div>
 </div>

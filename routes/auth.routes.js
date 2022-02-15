@@ -4,7 +4,7 @@ const User = require("../models/User.model")
 const saltRounds = 10
 
 // Signup
-router.get('/signup', (req, res, next) => res.render('auth/signup'))
+router.get('/signup', (req, res, next) => res.render('layout'))
 
 router.post('/signup', (req, res, next) => {
     const { password } = req.body
@@ -18,7 +18,7 @@ router.post('/signup', (req, res, next) => {
 })
 
 // Login
-router.get('/login', (req, res, next) => res.render('auth/login'))
+router.get('/login', (req, res, next) => res.render('layout'))
 router.post('/login', (req, res, next) => {
     const { username, password } = req.body
 
@@ -26,13 +26,14 @@ router.post('/login', (req, res, next) => {
         .findOne({ username })
         .then(user => {
             if (!user) {
-                res.render('auth/login', { errorMessage: 'Username no registrado en la Base de Datos' })
+                res.render('layout', { errorMessage: 'Username no registrado en la Base de Datos' })
                 return
             } else if (bcrypt.compareSync(password, user.password) === false) {
-                res.render('auth/login', { errorMessage: 'La contraseña es incorrecta' })
+                res.render('layout', { errorMessage: 'La contraseña es incorrecta' })
                 return
             } else {
                 req.session.currentUser = user
+                req.app.locals.connect = user
                 res.redirect('/')
             }
         })
@@ -41,7 +42,8 @@ router.post('/login', (req, res, next) => {
 
 // Logout
 router.post('/logout', (req, res, next) => {
-    req.session.destroy(() => res.redirect('/login'))
+    req.app.locals.connect = null
+    req.session.destroy(() => res.redirect('/'))
 })
 
 

@@ -11,6 +11,7 @@ app.set('views', `${__dirname}/views`)
 hbs.registerPartials(`${__dirname}/views/partials/`)
 
 require("./config")(app);
+require("./config/session.config")(app);
 
 const projectName = "rankor";
 
