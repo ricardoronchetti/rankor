@@ -1,7 +1,7 @@
 document.addEventListener(
     "DOMContentLoaded",
     () => {
-        console.log("rankor JS imported successfully!");
+        console.log("rankor JS imported successfully!")
     },
     false
 )
@@ -9,7 +9,7 @@ document.addEventListener(
 const btn = document.querySelectorAll('.ranking-btn')
 btn.forEach(elm => elm.onclick = () => document.querySelector('.ranking').classList.toggle('open'))
 
-let pics = document.querySelectorAll('.category-card');
+let pics = document.querySelectorAll('.category-card')
 let picsSrc = [
     '/images/pic1.jpg',
     '/images/pic2.jpg',
@@ -28,14 +28,14 @@ pics.forEach((elm, i) => elm.style.backgroundImage = `url(${picsSrc[i]})`)
 
 // $('textarea').each(function (){
 
-//     this.setAttribute('style', 'overflow-y: hidden;');
+//     this.setAttribute('style', 'overflow-y: hidden')
 
 // }).on('input', function () {
 
-//     this.style.height = 'auto';
-//     this.style.height = (this.scrollHeight) + 'px';
+//     this.style.height = 'auto'
+//     this.style.height = (this.scrollHeight) + 'px'
 
-// });
+// })
 
 // let textarea = document.querySelectorAll('textarea')
 // textarea

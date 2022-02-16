@@ -7,55 +7,53 @@
                     Volver
                 </a>
                 <h2>Editar usuario</h2>
-                <form action="/user/{{_id}}/edit" method="POST">
+                <form action="/user/{{_id}}/edit" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <input type="text" name="username" value="{{username}}">
                         <span class="barra"></span>
                         <label class="control-label">
-                                Nombre de usuario
+                            Nombre de usuario
                         </label>
                     </div>
                     <div class="form-group">
                         <input type="text" name="name" value="{{name}}">
                         <span class="barra"></span>
                         <label class="control-label">
-                                Nombre
+                            Nombre
                         </label>
                     </div>
                     <div class="form-group">
                         <input type="file" name="avatar" value="{{avatar}}">
                         <span class="barra"></span>
                         <label class="control-label">
-                                Avatar
+                            Avatar
                         </label>
                     </div>
                     <div class="form-group">
                         <textarea name="description" value="{{description}}"></textarea>
                         <span class="barra"></span>
                         <label class="control-label">
-                                Descripción
+                            Descripción
                         </label>
                     </div>
                     <div class="form-group">
                         <textarea name="skills" value="{{skills}}"></textarea>
                         <span class="barra"></span>
                         <label class="control-label">
-                                Skills
+                            Skills
                         </label>
                     </div>
-                              
+
                     <div class="d-grid gap-2">
-                        <button class="btn" 
-                                type="submit">
-                                Editar
+                        <button class="btn" type="submit">
+                            Editar
                         </button>
                     </div>
                 </form>
                 <hr>
                 <form action="/user/{{_id}}/delete" method="POST">
                     <div class="d-grid gap-2">
-                        <button class="btn reset" 
-                                type="submit">
+                        <button class="btn reset" type="submit">
                             Eliminar Perfil
                         </button>
                     </div>

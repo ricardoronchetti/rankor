@@ -1,24 +1,24 @@
-require("dotenv/config");
-require("./db");
+require("dotenv/config")
+require("./db")
 
-const express = require("express");
-const hbs = require("hbs");
-const app = express();
+const express = require("express")
+const hbs = require("hbs")
+const app = express()
 
 app.use(express.static('public'))
 app.set('view engine', 'hbs')
 app.set('views', `${__dirname}/views`)
-hbs.registerPartials(`${__dirname}/views/partials/`)
 
-require("./config")(app);
-require("./config/session.config")(app);
+require("./config")(app)
+require("./config/session.config")(app)
 
-const projectName = "rankor";
+const projectName = "rankor"
 
-app.locals.title = "Rankor: The Gamer's Ranking Social Network";
+app.locals.title = "Rankor: The Gamer's Ranking Social Network"
+// app.locals.API_KEY = process.env.API_KEY
 
 require('./routes')(app)
 
-require("./error-handling")(app);
+require("./error-handling")(app)
 
-module.exports = app;
+module.exports = app

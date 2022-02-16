@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
-const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/rankor";
+const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/rankor"
 
 mongoose
         .connect(MONGO_URI)

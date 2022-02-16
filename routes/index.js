@@ -3,9 +3,9 @@ module.exports = app => {
   const indexRouter = require('./index.routes')
   app.use('/', indexRouter)
 
-  // // API routes
-  // const apiRoutes = require('../routes/api.routes')
-  // app.use('/api', apiRoutes)
+  // API routes
+  const apiRoutes = require('../routes/api.routes')
+  app.use('/', apiRoutes)
 
   // Auth routes
   const authRouter = require('./auth.routes')

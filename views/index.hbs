@@ -3,37 +3,37 @@
 	<hr>
 	<div class="row my-5">
 		{{#each user}}
-			<div class="col-6 col-md-4 col-lg-3">
-				<a href="/user/{{_id}}">
-					<div class="card file-card">
-						<div class="header-file-card">
-							<h3>
-								{{username}}
-							</h3>
-						</div>
-						<div class="footer-file-card">
-							<form class="stars">
-								<p class="valoracion">
-									<input id="radio1" type="radio" name="estrellas" value="5">
-									<label for="radio1">★</label>
-									<input id="radio2" type="radio" name="estrellas" value="4">
-									<label for="radio2">★</label>
-									<input id="radio3" type="radio" name="estrellas" value="3">
-									<label for="radio3">★</label>
-									<input id="radio4" type="radio" name="estrellas" value="2">
-									<label for="radio4">★</label>
-									<input id="radio5" type="radio" name="estrellas" value="1">
-									<label for="radio5">★</label>
-								</p>
-							</form>
-							<div>
-								<p>{{skills}}</p>
-								<p>{{playedGames}}</p>
-							</div>
+		<div class="col-6 col-md-4 col-lg-3">
+			<a href="/user/{{_id}}">
+				<div class="card file-card">
+					<div class="header-file-card">
+						<h3>
+							{{username}}
+						</h3>
+					</div>
+					<div class="footer-file-card">
+						<form class="stars">
+							<p class="valoracion">
+								<input id="radio1" type="radio" name="estrellas" value="5">
+								<label for="radio1">★</label>
+								<input id="radio2" type="radio" name="estrellas" value="4">
+								<label for="radio2">★</label>
+								<input id="radio3" type="radio" name="estrellas" value="3">
+								<label for="radio3">★</label>
+								<input id="radio4" type="radio" name="estrellas" value="2">
+								<label for="radio4">★</label>
+								<input id="radio5" type="radio" name="estrellas" value="1">
+								<label for="radio5">★</label>
+							</p>
+						</form>
+						<div>
+							<p>{{skills}}</p>
+							<p>{{playedGames}}</p>
 						</div>
 					</div>
-				</a>
-			</div>
+				</div>
+			</a>
+		</div>
 		{{/each}}
 	</div>
 	<hr>
@@ -41,7 +41,7 @@
 	<hr>
 	<div class="row">
 		<div class="col-6 col-md-4 col-lg-3">
-			<a href="">
+			<a href="/api/search/genre/11">
 				<div class="card category-card">
 					<div class="footer-category-card">
 						<p>Arcade</p>
@@ -50,7 +50,7 @@
 			</a>
 		</div>
 		<div class="col-6 col-md-4 col-lg-3">
-			<a href="">
+			<a href="/api/search/genre/4">
 				<div class="card category-card">
 					<div class="footer-category-card">
 						<p>Acción</p>
@@ -59,7 +59,7 @@
 			</a>
 		</div>
 		<div class="col-6 col-md-4 col-lg-3">
-			<a href="">
+			<a href="/api/search/genre/10">
 				<div class="card category-card">
 					<div class="footer-category-card">
 						<p>Plataformas</p>
@@ -68,7 +68,7 @@
 			</a>
 		</div>
 		<div class="col-6 col-md-4 col-lg-3">
-			<a href="">
+			<a href="/api/search/genre/15">
 				<div class="card category-card">
 					<div class="footer-category-card">
 						<p>Deportes</p>
@@ -77,7 +77,7 @@
 			</a>
 		</div>
 		<div class="col-6 col-md-4 col-lg-3">
-			<a href="">
+			<a href="/api/search/genre/6">
 				<div class="card category-card">
 					<div class="footer-category-card">
 						<p>Lucha</p>
@@ -86,7 +86,7 @@
 			</a>
 		</div>
 		<div class="col-6 col-md-4 col-lg-3">
-			<a href="">
+			<a href="/api/search/genre/5">
 				<div class="card category-card">
 					<div class="footer-category-card">
 						<p>Rol</p>
@@ -95,7 +95,7 @@
 			</a>
 		</div>
 		<div class="col-6 col-md-4 col-lg-3">
-			<a href="">
+			<a href="/api/search/genre/2">
 				<div class="card category-card">
 					<div class="footer-category-card">
 						<p>Shooter</p>
@@ -104,7 +104,7 @@
 			</a>
 		</div>
 		<div class="col-6 col-md-4 col-lg-3">
-			<a href="">
+			<a href="/api/search/genre/14">
 				<div class="card category-card">
 					<div class="footer-category-card">
 						<p>Simulación</p>
@@ -113,7 +113,7 @@
 			</a>
 		</div>
 		<div class="col-6 col-md-4 col-lg-3">
-			<a href="">
+			<a href="/api/search/genre/3">
 				<div class="card category-card">
 					<div class="footer-category-card">
 						<p>Aventuras</p>
@@ -122,7 +122,7 @@
 			</a>
 		</div>
 		<div class="col-6 col-md-4 col-lg-3">
-			<a href="">
+			<a href="/api/search/genre/28">
 				<div class="card category-card">
 					<div class="footer-category-card">
 						<p>Juegos de mesa</p>
@@ -131,19 +131,19 @@
 			</a>
 		</div>
 		<div class="col-6 col-md-4 col-lg-3">
-			<a href="">
+			<a href="/api/search/genre/51">
 				<div class="card category-card">
 					<div class="footer-category-card">
-						<p>Musicales</p>
+						<p>Indie</p>
 					</div>
 				</div>
 			</a>
 		</div>
 		<div class="col-6 col-md-4 col-lg-3">
-			<a href="">
+			<a href="/api/search/genre/40">
 				<div class="card category-card">
 					<div class="footer-category-card">
-						<p>Web y móvil</p>
+						<p>Casual</p>
 					</div>
 				</div>
 			</a>

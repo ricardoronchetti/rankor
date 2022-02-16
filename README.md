@@ -118,7 +118,7 @@ _Below is an example of how you can instruct your audience on installing and set
    ```
 4. Enter your API in `config`
    ```js
-   const API_KEY = 'ENTER YOUR API';
+   const API_KEY = 'ENTER YOUR API'
    ```
 5. Run the project
    ```js
