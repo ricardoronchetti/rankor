@@ -21,8 +21,8 @@ const userSchema = new Schema(
       default: 'USER',
     },
     playedGames: [{
-      type: Schema.Types.ObjectId,
-      ref: 'User'
+      type: String,
+      unique: true,
     }],
     friends: [{
       type: Schema.Types.ObjectId,
@@ -34,4 +34,8 @@ const userSchema = new Schema(
   }
 )
 
-module.exports = model('User', userSchema)
+const User = model('User', userSchema)
+
+User.syncIndexes()
+
+module.exports = User

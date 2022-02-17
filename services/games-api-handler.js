@@ -10,7 +10,7 @@ class APIHandler {
     }
 
     getOneQuery(query) {
-        return this.axiosApp.get('/games?key=${API_KEY}&search=${query}')
+        return this.axiosApp.get(`/games?key=${API_KEY}&search=${query}`)
     }
 
     getOneGame(id) {

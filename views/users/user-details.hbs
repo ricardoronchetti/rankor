@@ -30,6 +30,7 @@
                     <input id="radio5" type="radio" name="estrellas" value="1">
                     <label for="radio5">★</label>
                 </p>
+                <input hidden readonly id="hiddenStar" value='{{id}}'>
             </form>
         </div>
         <div>
@@ -46,9 +47,23 @@
         </div>
         <div>
             <h4>Mis juegos</h4>
-            <p>
-                {{playedGames}}
-            </p>
+            <div class="row my-5">
+                <p>
+                    {{playedGames}}
+                </p>
+                {{!-- {{#each playedGames}}
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="/search/{{_id}}">
+                        <div class="card game-card">
+                            <img src="{{background_image}}" alt="{{background_image}}">
+                            <div class="footer-game-card">
+                                <p>{{name}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{/each}} --}}
+            </div>
         </div>
         <div>
             <h4>Amigos</h4>
@@ -58,3 +73,6 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/dynamic-rating.js"></script>

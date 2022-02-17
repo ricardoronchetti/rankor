@@ -3,9 +3,14 @@ const router = express.Router()
 const User = require('../models/User.model')
 const fileUploader = require('../config/cloudinary.config')
 
+const APIHandler = require("../services/games-api-handler")
+const apiHandler = new APIHandler()
+
 
 const { isAdmin, isUser } = require('../utils')
 const { isLoggedIn, checkRoles, isUserOrAdmin } = require('../middlewares')
+const cloudinaryConfig = require('../config/cloudinary.config')
+const Review = require('../models/Review.model')
 
 router.get('/user', isLoggedIn, (req, res, next) => {
     User
@@ -28,7 +33,24 @@ router.get('/user/:id', (req, res, next) => {
     const { id } = req.params
     User
         .findById(id)
-        .then(user => res.render('users/user-details', user))
+        .then(user => {
+            const promises = []
+
+            user.playedGames.forEach(el => {
+                promises.push(apiHandler.getOneGame(el))
+            })
+
+            Promise.all(promises)
+                .then(responses => {
+                    responses.forEach((response, i) => {
+                        user.playedGames[i] = response.data.name
+                    })
+
+                    res.render('users/user-details', user)
+                })
+                .catch(err => console.log(err))
+
+        })
         .catch(err => console.log(err))
 })
 
@@ -57,6 +79,35 @@ router.post('/user/:id/delete', isLoggedIn, checkRoles('USER', 'ADMIN'), (req, r
         .catch(err => console.log(err))
 })
 
+router.get('/user/add-game/:id', isLoggedIn, checkRoles('USER', 'ADMIN'), (req, res, next) => {
+    const currentUserId = req.session.currentUser._id
+    const { id } = req.params
+
+    // User
+    //     .findById(req.session.currentUser._id)
+    //     .then((user) => {
+    //         if (user.playedGames.some((el) => el.games === user.playedGames)) {
+    //             res.json('Error')
+    //             return
+    //         }
+    //     })
+
+    User
+        .findByIdAndUpdate(currentUserId, { $push: { playedGames: id } }, { new: true })
+        .then(() => res.redirect('back'))
+        .catch((err) => console.log(err))
+})
+
+router.post('/user/add-rating', isLoggedIn, checkRoles('USER', 'ADMIN'), (req, res, next) => {
+    const { ratee, rating } = req.body
+
+    if (!req.session.currentUser)
+        res.status(401).json('Debe estar loggeado')
+    Review
+        .create({ rater: req.session.currentUser, ratee, rating })
+        .then(() => res.status(200).json())
+        .catch(err => res.status(500).json(err))
+})
 
 
 module.exports = router

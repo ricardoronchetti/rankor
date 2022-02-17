@@ -37,7 +37,8 @@ router.post('/review-delete/:id', isLoggedIn, checkRoles('USER', 'ADMIN'), (req,
         .findById(id)
         .populate('rater')
         .then(review => {
-            if (review.rater.username === req.session.currentUser.username || req.session.currentUser.role === 'ADMIN') {
+            if (review.rater.username === req.session.currentUser.username ||
+                req.session.currentUser.role === 'ADMIN') {
                 Review
                     .findByIdAndRemove(id)
                     .then(() => res.render('reviews/review'))

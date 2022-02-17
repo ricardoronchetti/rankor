@@ -4,7 +4,6 @@ const reviewSchema = new Schema(
     {
         title: {
             type: String,
-            required: true,
         },
         description: String,
         rating: {
@@ -31,5 +30,5 @@ const reviewSchema = new Schema(
 )
 
 const Review = model('Review', reviewSchema)
-
+Review.syncIndexes()
 module.exports = Review
