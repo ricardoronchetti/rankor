@@ -2,7 +2,10 @@ const { Schema, model } = require('mongoose')
 
 const gameSchema = new Schema(
     {
-        name: String,
+        name: {
+            type: String,
+            minLength: [10, 'La descripción debe...']
+        },
         description: String,
         genre: String,
         publisher: String,

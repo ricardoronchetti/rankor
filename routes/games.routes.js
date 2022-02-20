@@ -1,13 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const axios = require('axios')
 const User = require('../models/User.model')
 const Game = require('../models/Game.model')
 
 const { isAdmin, isUser } = require('../utils')
 const { isLoggedIn, checkRoles, isUserOrAdmin } = require('../middlewares')
 
-const API_KEY = process.env.API_KEY
 
 const APIHandler = require('../services/games-api-handler')
 const gamesAPI = new APIHandler()
