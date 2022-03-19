@@ -26,6 +26,7 @@
       </ul>
     </li>
     <li><a href="#authors">Authors</a></li>
+    <li><a href="#demo">Demo</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -53,7 +54,7 @@ The ranking system wants to promote the player interaction after a successful pl
 * [MongoDB](https://www.mongodb.com)
 * [Mongoose](https://mongoosejs.com)
 * [Node.js](https://nodejs.org)
-* [Rawg](https://rawg.io)
+* [RAWG](https://rawg.io)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -105,9 +106,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [Rawg](http://rawg.io)
+1. Get a free API Key at [RAWG](http://rawg.io)
 2. Clone the repo
    ```sh
    git clone https://github.com/ricardoronchetti/rankor.git
@@ -116,17 +115,31 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    npm install
    ```
-4. Enter your API in `config`
+4. Enter your API in `.env`
    ```js
-   const API_KEY = 'ENTER YOUR API'
+   API_KEY='YOUR KEY'
    ```
-5. Run the project
+5. Enter your Cloudinary Key in `.env`
+   ```js
+   CLOUDINARY_NAME='YOUR NAME'
+   CLOUDINARY_KEY='YOUR KEY'
+   CLOUDINARY_SECRET='YOUR SECRET'
+   ```   
+6. Run the project
    ```js
    npm run dev
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+
+
+<!-- DEMO -->
+## Demo
+
+A live [Demo](https://ironrankor.herokuapp.com/) is available.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- LICENSE -->
@@ -137,11 +150,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
 <!-- CONTACT -->
 ## Contact
 
-Guillermo Perez - [LinkedIn](https://linkedin.com/in/guillermo-perez-fuentes)
+Guillermo Perez - [LinkedIn](https://linkedin.com/in/guillermo-perez-fuentes)<br />
 Ricardo Ronchetti - [LinkedIn](https://linkedin.com/in/ricardoronchetti)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -151,6 +163,6 @@ Ricardo Ronchetti - [LinkedIn](https://linkedin.com/in/ricardoronchetti)
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Coming Soon!
+Guillermo Concepción - Ironhack's Teacher Assistant & our Product Owner
 
 <p align="right">(<a href="#top">back to top</a>)</p>

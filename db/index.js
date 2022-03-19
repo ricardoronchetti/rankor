@@ -5,4 +5,4 @@ const MONGO_URI = process.env.MONGODB_REMOTE || process.env.MONGODB_URI || "mong
 mongoose
         .connect(MONGO_URI)
         .then((x) => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
-        .catch((err) => console.error("Error connecting to mongo: ", err))
+        .catch((err) => console.log("Error connecting to mongo: ", err))
