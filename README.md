@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="./public/images/logo.png" alt="Logo" width="80" height="80">
+    <img src="./public/images/logo.png" alt="Logo Rankor">
     <h3 align="center">Rankor: The Gamer's Ranking Social Network</h3>
 </div>
 
