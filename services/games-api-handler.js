@@ -21,4 +21,5 @@ class APIHandler {
         return this.axiosApp.get(`/games?key=${API_KEY}&genres=${id}`)
     }
 }
+
 module.exports = APIHandler

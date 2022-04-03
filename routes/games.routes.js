@@ -6,7 +6,6 @@ const Game = require('../models/Game.model')
 const { isAdmin, isUser } = require('../utils')
 const { isLoggedIn, checkRoles, isUserOrAdmin } = require('../middlewares')
 
-
 const APIHandler = require('../services/games-api-handler')
 const gamesAPI = new APIHandler()
 
@@ -16,11 +15,11 @@ router.get('/search', (req, res) => {
     const { query } = req.body
 
     gamesAPI
-        .getOneQuery(query)
-        .then(game => {
-            res.render('search/search', { game: game.data.results })
-        })
-        .catch((err) => console.log(err))
+            .getOneQuery(query)
+            .then(game => {
+                res.render('search/search', { game: game.data.results })
+            })
+            .catch((err) => console.log(err))
 })
 
 //Details
@@ -28,11 +27,11 @@ router.get('/search/:id', (req, res) => {
     const { id } = req.params
 
     gamesAPI
-        .getOneGame(id)
-        .then(game => {
-            res.render('search/search-details', game.data)
-        })
-        .catch((err) => console.log(err))
+            .getOneGame(id)
+            .then(game => {
+                res.render('search/search-details', game.data)
+            })
+            .catch((err) => console.log(err))
 })
 
 //Genre Details
@@ -40,11 +39,11 @@ router.get('/search/genre/:id', (req, res) => {
     const { id } = req.params
 
     gamesAPI
-        .getbyGenre(id)
-        .then(game => {
-            res.render('search/search', { game: game.data.results })
-        })
-        .catch((err) => console.log(err))
+            .getbyGenre(id)
+            .then(game => {
+                res.render('search/search', { game: game.data.results })
+            })
+            .catch((err) => console.log(err))
 })
 
 

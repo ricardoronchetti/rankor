@@ -15,15 +15,15 @@ router.get("/", (req, res, next) => {
                     promises.push(apiHandler.getOneGame(el))
                 })
 
-                Promise.all(promises)
-                    .then(responses => {
-                        responses.forEach((response, i) => {
-                            user.playedGames[i] = response.data.name
-                            console.log(user.playedGames[i]);
-                        })
-                        res.render('index', { users })
-                    })
-                    .catch(err => console.log(err))
+                // Promise.all(promises)
+                //         .then(responses => {
+                //             responses.forEach((response, i) => {
+                //                 user.playedGames[i] = response.data.name
+                //                 console.log(user.playedGames[i]);
+                //             })
+                //             res.render('index', { users })
+                //         })
+                //         .catch(err => console.log(err))
             })
 
         })

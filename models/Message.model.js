@@ -1,25 +1,24 @@
 const { Schema, model } = require('mongoose')
 
 const messageSchema = new Schema(
-    {
-        from: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
-        },
-        to: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
-        },
-        text: String,
-        date: {
-            type: Date,
-            default: Date.now
-        }
+{
+    from: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
     },
-    {
-        timestamps: true,
+    to: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    text: String,
+    date: {
+        type: Date,
+        default: Date.now
     }
-)
+},
+{
+    timestamps: true,
+})
 
 const Message = model('Message', messageSchema)
 

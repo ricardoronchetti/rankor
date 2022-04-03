@@ -10,15 +10,16 @@ router.post('/signup', (req, res, next) => {
     const { password } = req.body
 
     bcrypt
-        .genSalt(saltRounds)
-        .then(salt => bcrypt.hash(password, salt))
-        .then(password => User.create({ ...req.body, password: password }))
-        .then(createdUser => res.redirect('/'))
-        .catch(error => next(error))
+          .genSalt(saltRounds)
+          .then(salt => bcrypt.hash(password, salt))
+          .then(password => User.create({ ...req.body, password: password }))
+          .then(createdUser => res.redirect('/'))
+          .catch(error => next(error))
 })
 
 // Login
 router.get('/login', (req, res, next) => res.render('layout'))
+
 router.post('/login', (req, res, next) => {
     const { username, password } = req.body
 

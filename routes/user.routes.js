@@ -23,6 +23,7 @@ router.get('/user/create', (req, res, next) => res.render('layout'))
 
 router.post('/user/create', (req, res, next) => {
     const { username, password, name, description, avatar, skills, role, playedGames, friends } = req.body
+
     User
         .create({ username, password, name, description, avatar, skills, role, playedGames, friends })
         .then(() => res.redirect('/'))
@@ -31,6 +32,7 @@ router.post('/user/create', (req, res, next) => {
 
 router.get('/user/:id', (req, res, next) => {
     const { id } = req.params
+
     User
         .findById(id)
         .then(user => {
@@ -56,6 +58,7 @@ router.get('/user/:id', (req, res, next) => {
 
 router.get('/user/:id/edit', isLoggedIn, checkRoles('USER', 'ADMIN'), isUserOrAdmin, (req, res, next) => {
     const { id } = req.params
+
     User
         .findById(id)
         .then(user => res.render('users/user-edit', user))
@@ -65,6 +68,7 @@ router.get('/user/:id/edit', isLoggedIn, checkRoles('USER', 'ADMIN'), isUserOrAd
 router.post('/user/:id/edit', isLoggedIn, checkRoles('USER', 'ADMIN'), isUserOrAdmin, fileUploader.single('avatar'), (req, res, next) => {
     const { id } = req.params
     const { username, password, name, description, avatar, skills, role, playedGames, friends } = req.body
+
     User
         .findByIdAndUpdate(id, { username, password, name, description, avatar: req.file.path, skills, role, playedGames, friends }, { new: true })
         .then(() => res.redirect(`/user/${id}`))
@@ -73,41 +77,60 @@ router.post('/user/:id/edit', isLoggedIn, checkRoles('USER', 'ADMIN'), isUserOrA
 
 router.post('/user/:id/delete', isLoggedIn, checkRoles('USER', 'ADMIN'), (req, res, next) => {
     const { id } = req.params
+
     User
         .findByIdAndDelete(id)
         .then(() => res.redirect('/'))
         .catch(err => console.log(err))
 })
 
-router.get('/user/add-game/:id', isLoggedIn, checkRoles('USER', 'ADMIN'), (req, res, next) => {
-    const currentUserId = req.session.currentUser._id
-    const { id } = req.params
+// router.get('/user/add-game/:id', isLoggedIn, checkRoles('USER', 'ADMIN'), (req, res, next) => {
+//     const currentUserId = req.session.currentUser._id
+//     const { id } = req.params
 
-    // User
-    //     .findById(req.session.currentUser._id)
-    //     .then((user) => {
-    //         if (user.playedGames.some((el) => el.games === user.playedGames)) {
-    //             res.json('Error')
-    //             return
-    //         }
-    //     })
+//     User
+//         .findByIdAndUpdate(currentUserId, { $push: { playedGames: id } }, { new: true })
+//         .then(() => res.redirect('back'))
+//         .catch((err) => console.log(err))
+// })
+
+router.get('/user/add-game/:id', isLoggedIn, checkRoles('USER', 'ADMIN'), (req, res, next) => {
+    const { currentUserId } = req.params
+    const { id } = req.payload
 
     User
-        .findByIdAndUpdate(currentUserId, { $push: { playedGames: id } }, { new: true })
-        .then(() => res.redirect('back'))
+        .findById(currentUserId)
+        .then(res => {
+            User
+                .findByIdAndUpdate(id, {$push: {playedGames: currentUserId}}, {new: true})
+                .then(() => res.redirect('back'))
+        })
         .catch((err) => console.log(err))
 })
 
-router.post('/user/add-rating', isLoggedIn, checkRoles('USER', 'ADMIN'), (req, res, next) => {
-    const { ratee, rating } = req.body
-
-    if (!req.session.currentUser)
-        res.status(401).json('Debe estar loggeado')
-    Review
-        .create({ rater: req.session.currentUser, ratee, rating })
-        .then(() => res.status(200).json())
-        .catch(err => res.status(500).json(err))
+router.get('/user/add-game/:id/delete', isLoggedIn, checkRoles('USER', 'ADMIN'), (req, res, next) => {
+    const { currentUserId } = req.params
+    const { id } = req.payload
+    User
+        .findById(_id)
+        .then(res => {
+            User
+                .findByIdAndUpdate(id, {$pull: {playedGames:currentUserId}}, {new: true})
+                .then(() => res.redirect('back'))
+        })
+        .catch((err) => console.log(err))
 })
+
+// router.post('/user/add-rating', isLoggedIn, checkRoles('USER', 'ADMIN'), (req, res, next) => {
+//     const { ratee, rating } = req.body
+
+//     if (!req.session.currentUser)
+//         res.status(401).json('Debe iniciar sesión')
+//     Review
+//           .create({ rater: req.session.currentUser, ratee, rating })
+//           .then(() => res.status(200).json())
+//           .catch(err => res.status(500).json(err))
+// })
 
 
 module.exports = router

@@ -1,35 +1,35 @@
 <div id="top"></div>
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="https://i.imgur.com/O26rFw6.png" alt="Logo" width="80" height="80">
-  <h3 align="center">Rankor: The Gamer's Ranking Social Network</h3>
+    <img src="./public/images/logo.png" alt="Logo" width="80" height="80">
+    <h3 align="center">Rankor: The Gamer's Ranking Social Network</h3>
 </div>
-
 
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#authors">Authors</a></li>
-    <li><a href="#demo">Demo</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
+    <summary>Table of Contents</summary>
+    <ol>
+        <li>
+            <a href="#about-the-project">About The Project</a>
+            <ul>
+                <li><a href="#built-with">Built With</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#getting-started">Getting Started</a>
+            <ul>
+                <li><a href="#prerequisites">Prerequisites</a></li>
+                <li><a href="#installation">Installation</a></li>
+            </ul>
+        </li>
+        <li><a href="#authors">Authors</a></li>
+        <li><a href="#demo">Demo</a></li>
+        <li><a href="#license">License</a></li>
+        <li><a href="#acknowledgments">Acknowledgments</a></li>
+    </ol>
 </details>
 
 
@@ -46,7 +46,6 @@ The ranking system wants to promote the player interaction after a successful pl
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
 ### Built With
 
 * [Bootstrap](https://getbootstrap.com)
@@ -57,7 +56,6 @@ The ranking system wants to promote the player interaction after a successful pl
 * [RAWG](https://rawg.io)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- ENDPOINTS -->
@@ -84,7 +82,6 @@ GAMES ROUTES:
 | Action   | Show all games | Game detail | Register game in user |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- GETTING STARTED -->
@@ -133,7 +130,6 @@ To get a local copy up and running follow these simple example steps.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
 <!-- DEMO -->
 ## Demo
 
@@ -153,16 +149,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Guillermo Perez - [LinkedIn](https://linkedin.com/in/guillermo-perez-fuentes)<br />
+Guillermo Pérez - [LinkedIn](https://linkedin.com/in/guillermo-perez-fuentes)<br />
 Ricardo Ronchetti - [LinkedIn](https://linkedin.com/in/ricardoronchetti)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Guillermo Concepción - Ironhack's Teacher Assistant & our Product Owner
 
 <p align="right">(<a href="#top">back to top</a>)</p>

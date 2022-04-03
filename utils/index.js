@@ -20,6 +20,4 @@ const formatDate = date => {
 const isAdmin = user => user.role === 'ADMIN'
 const isUser = user => user.role === 'USER'
 
-
-
 module.exports = { capitalize, cleanText, checkMongoID, formatDate, isAdmin, isUser }

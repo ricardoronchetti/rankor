@@ -12,10 +12,9 @@ app.set('views', `${__dirname}/views`)
 require("./config")(app)
 require("./config/session.config")(app)
 
-const projectName = "rankor"
+const projectName = "Rankor"
 
 app.locals.title = "Rankor: The Gamer's Ranking Social Network"
-// app.locals.API_KEY = process.env.API_KEY
 
 require('./routes')(app)
 
