@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs')
 const User = require("../models/User.model")
 const saltRounds = 10
 
+
 // Signup
 router.get('/signup', (req, res, next) => res.render('layout'))
 

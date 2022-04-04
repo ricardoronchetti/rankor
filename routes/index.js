@@ -4,7 +4,7 @@ module.exports = app => {
     app.use('/', indexRouter)
 
     // Games routes
-    const gamesRoutes = require('../routes/games.routes')
+    const gamesRoutes = require('./games.routes')
     app.use('/', gamesRoutes)
 
     // Auth routes

@@ -25,22 +25,3 @@ let picsSrc = [
     '/images/pic12.jpg',
 ]
 pics.forEach((elm, i) => elm.style.backgroundImage = `url(${picsSrc[i]})`)
-
-// $('textarea').each(function (){
-
-//     this.setAttribute('style', 'overflow-y: hidden')
-
-// }).on('input', function () {
-
-//     this.style.height = 'auto'
-//     this.style.height = (this.scrollHeight) + 'px'
-
-// })
-
-// let textarea = document.querySelectorAll('textarea')
-// textarea
-//         .forEach(elm => elm.setAttribute('style', 'overflowY', 'hidden'))
-//         .oninput = () => {
-//             this.style.height = 'auto'
-//             this.style.height = (this.scrollHeight) + 'px'
-//         }
