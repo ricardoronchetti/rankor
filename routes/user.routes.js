@@ -132,5 +132,4 @@ router.get('/user/add-game/:id/delete', isLoggedIn, checkRoles('USER', 'ADMIN'),
 //           .catch(err => res.status(500).json(err))
 // })
 
-
 module.exports = router

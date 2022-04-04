@@ -19,7 +19,7 @@ router.get("/", (req, res, next) => {
                 //         .then(responses => {
                 //             responses.forEach((response, i) => {
                 //                 user.playedGames[i] = response.data.name
-                //                 console.log(user.playedGames[i]);
+                //                 console.log(user.playedGames[i])
                 //             })
                 //             res.render('index', { users })
                 //         })

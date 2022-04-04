@@ -50,5 +50,4 @@ router.post('/review-delete/:id', isLoggedIn, checkRoles('USER', 'ADMIN'), (req,
           .catch((err) => console.log(err))
 })
 
-
 module.exports = router
