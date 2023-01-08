@@ -1,9 +1,9 @@
-const router = require("express").Router()
+const router = require('express').Router()
 const User = require('../models/User.model')
-const APIHandler = require("../services/games-api-handler")
+const APIHandler = require('../services/games-api-handler')
 const apiHandler = new APIHandler()
 
-// router.get("/", (req, res, next) => {
+// router.get('/', (req, res, next) => {
 //     User
 //         .find()
 //         .then(users => {

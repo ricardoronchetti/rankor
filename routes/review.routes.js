@@ -1,4 +1,4 @@
-const router = require("express").Router()
+const router = require('express').Router()
 const Review = require('../models/Review.model')
 const User = require('../models/User.model')
 const Game = require('../models/Game.model')

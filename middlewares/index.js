@@ -15,7 +15,7 @@ module.exports = {
                 roles.includes(req.session.currentUser.role)
                     ? next()
                     : res.render('/login', {
-                        errorMsg: "No tienes permiso para ver esta página",
+                        errorMsg: 'No tienes permiso para ver esta página',
                     })
             },
 
@@ -27,7 +27,7 @@ module.exports = {
             next()
         } else {
             res.render('/login', {
-                errorMsg: "No tienes permiso para ver esta página",
+                errorMsg: 'No tienes permiso para ver esta página',
             })
         }
     },

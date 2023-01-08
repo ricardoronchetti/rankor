@@ -335,7 +335,7 @@ header .brand {
 .footer-category-card:after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
-    content: "";
+    content: '';
     display: block;
     height: 4px;
     left: 0;
@@ -393,7 +393,7 @@ header .brand {
 .footer-game-card:after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
-    content: "";
+    content: '';
     display: block;
     height: 4px;
     left: 0;
@@ -584,7 +584,7 @@ header .brand {
     font-size: 2em;
 }
 
-.stars input[type="radio"] {
+.stars input[type='radio'] {
     display: none;
 }
 
@@ -603,7 +603,7 @@ header .brand {
     color: orange;
 }
 
-.stars input[type="radio"]:checked ~ label {
+.stars input[type='radio']:checked ~ label {
     color: orange;
 }
 

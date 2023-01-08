@@ -1,7 +1,7 @@
 document.addEventListener(
-    "DOMContentLoaded",
+    'DOMContentLoaded',
     () => {
-        console.log("rankor JS imported successfully!")
+        console.log('rankor JS imported successfully!')
     },
     false
 )
